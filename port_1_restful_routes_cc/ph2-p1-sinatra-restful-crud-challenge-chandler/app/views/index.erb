@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Notes!</h1>
+  <a id="new-note" href="/notes/new">Create a new note!</a>
+  <% p @notes %>
+  <% if @notes.empty? %>
+    <p>There are no notes to display at this time!</p>
+  <% else %>
+    <% @notes.each do |note| %>
+      <a class="edit" href="/notes/<%= note[:id] %>"><h3><%= note[:title] %> </h3></a>
+      <p><%= note[:content] %></p>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,30 @@
+<% unless @note %>
+  <div class="container">
+    <h1>Create a New Note</h1>
+  </div>
+<% end %>
+
+<div class="container">
+  <form id="note-form" action="/notes<%= "/#{@note[:id]}" if @note %>" method="post">
+    <% if @note %>
+      <input type="hidden" name="_method" value="put">
+    <% end %>
+    <input type="text" name="title" <%= @note ? "value='#{@note[:title]}'" : "placeholder='Title'" %>><br />
+    <input type="text" name="content" <%= @note ? "value='#{@note[:content]}'" : "placeholder='Content'" %>><br />
+    <input id=<%= @note ? "edit-note" : "create-note" %> type="submit"><br/>
+  </form>
+<!-- 
+# TextArea is not being saved yet. -->
+
+  <textarea rows="4" cols="50" name="comment" form="usrform">
+Enter text here...</textarea>
+
+  <% if @note %>
+    <% if params[:note_id] %>
+      <%= erb :_delete %>
+    <% else %>
+      <input type="submit" id="delete-note" value="Delete">
+    <% end %>
+  <% end %>
+
+</div>
