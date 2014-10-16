@@ -1,0 +1,5 @@
+<form action="/notes/<%= params[:note_id] %>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <span><input type="checkbox" name="delete">Delete Note</span><br>
+  <input type="submit">
+</form>
