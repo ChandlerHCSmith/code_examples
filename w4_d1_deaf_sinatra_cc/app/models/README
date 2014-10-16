@@ -1,0 +1,5 @@
+Add ActiveRecord models here.
+
+Create them by being in the application root directory and running, e.g.,
+
+rake generate:model NAME=User
