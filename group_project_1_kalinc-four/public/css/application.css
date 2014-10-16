@@ -1,0 +1,72 @@
+#container {
+	width: 1400px;
+	height: 800px;
+  overflow: hidden;
+  margin: auto;
+}
+
+h1 {
+ font-family: 'Raleway', sans-serif;
+ font-size: 60px;
+ text-align: center;
+ color: #ebff00;
+ text-shadow: 0 1px 0 grey,
+ 0 2px 0 #c9c9c9,
+ 0 3px 0 #bbb,
+ 0 4px 0 #b9b9b9,
+ 0 5px 0 #aaa,
+ 0 6px 1px rgba(0,0,0,.1),
+ 0 0 5px rgba(0,0,0,.1),
+ 0 1px 3px rgba(0,0,0,.3),
+ 0 3px 5px rgba(0,0,0,.2),
+ 0 5px 10px rgba(0,0,0,.25),
+ 0 10px 10px rgba(0,0,0,.2),
+ 0 20px 20px rgba(0,0,0,.15);
+}
+
+.user-info {
+	height: 600px;
+	width: 335px;
+	background: white;
+}
+
+#user1 {
+	float: left;
+}
+
+#connect_board {
+	float: left;
+}
+
+#user2 {
+	float: left;
+}
+
+td {
+  background-color: white;
+  border: 1px solid;
+  height: 100px;
+  width: 100px;
+  border-bottom: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+
+.players {
+	height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.player1 {
+  content:url("images/josh.jpeg");
+}
+
+.player2 {
+  content:url("images/derek.png");
+}
+
