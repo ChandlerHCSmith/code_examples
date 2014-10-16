@@ -1,0 +1,412 @@
+  [1m[36m (170.6ms)[0m  [1mDROP DATABASE IF EXISTS "dbc_overflow_development"[0m
+  [1m[35m (112.1ms)[0m  DROP DATABASE IF EXISTS "dbc_overflow_test"
+  [1m[36m (923.4ms)[0m  [1mCREATE DATABASE "dbc_overflow_development" ENCODING = 'unicode'[0m
+  [1m[35m (293.6ms)[0m  CREATE DATABASE "dbc_overflow_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (21.2ms)[0m  CREATE TABLE "answers" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "question_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "commentable_id" integer NOT NULL, "commentable_type" character varying(255) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "questions" ("id" serial primary key, "title" character varying(140) NOT NULL, "content" text NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(30) NOT NULL, "username" character varying(30) NOT NULL, "password" character varying(30) NOT NULL, "email" character varying(30) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "votes" ("id" serial primary key, "user_id" integer NOT NULL, "voteable_id" integer NOT NULL, "voteable_type" character varying(255) NOT NULL, "upvote" boolean, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140831210503')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140829201222')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140829201834')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140829202500')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140829203441')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (270.4ms)[0m  [1mDROP DATABASE IF EXISTS "dbc_overflow_development"[0m
+  [1m[35m (159.7ms)[0m  DROP DATABASE IF EXISTS "dbc_overflow_test"
+  [1m[36m (1065.6ms)[0m  [1mCREATE DATABASE "dbc_overflow_development" ENCODING = 'unicode'[0m
+  [1m[35m (292.0ms)[0m  CREATE DATABASE "dbc_overflow_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (21.6ms)[0m  CREATE TABLE "answers" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "question_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "commentable_id" integer NOT NULL, "commentable_type" character varying(255) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "questions" ("id" serial primary key, "title" character varying(140) NOT NULL, "content" text NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(30) NOT NULL, "username" character varying(30) NOT NULL, "password" character varying(30) NOT NULL, "email" character varying(30) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "votes" ("id" serial primary key, "user_id" integer NOT NULL, "voteable_id" integer NOT NULL, "voteable_type" character varying(255) NOT NULL, "upvote" boolean, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140831210503')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140829201222')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140829201834')
+  [1m[36m (6.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140829202500')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140829203441')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (166.9ms)[0m  [1mDROP DATABASE IF EXISTS "dbc_overflow_development"[0m
+  [1m[35m (133.4ms)[0m  DROP DATABASE IF EXISTS "dbc_overflow_test"
+  [1m[36m (1015.7ms)[0m  [1mCREATE DATABASE "dbc_overflow_development" ENCODING = 'unicode'[0m
+  [1m[35m (254.2ms)[0m  CREATE DATABASE "dbc_overflow_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (22.8ms)[0m  CREATE TABLE "answers" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "question_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "commentable_id" integer NOT NULL, "commentable_type" character varying(255) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "questions" ("id" serial primary key, "title" character varying(140) NOT NULL, "content" text NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(30) NOT NULL, "username" character varying(30) NOT NULL, "password" character varying(30) NOT NULL, "email" character varying(30) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (25.1ms)[0m  CREATE TABLE "votes" ("id" serial primary key, "user_id" integer NOT NULL, "voteable_id" integer NOT NULL, "voteable_type" character varying(255) NOT NULL, "upvote" boolean, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (17.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (47.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140831210503')
+  [1m[36m (10.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140829201222')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140829201834')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140829202500')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140829203441')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (122.1ms)[0m  [1mDROP DATABASE IF EXISTS "dbc_overflow_development"[0m
+  [1m[35m (112.0ms)[0m  DROP DATABASE IF EXISTS "dbc_overflow_test"
+  [1m[36m (245.0ms)[0m  [1mCREATE DATABASE "dbc_overflow_development" ENCODING = 'unicode'[0m
+  [1m[35m (262.0ms)[0m  CREATE DATABASE "dbc_overflow_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.5ms)[0m  CREATE TABLE "answers" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "question_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "commentable_id" integer NOT NULL, "commentable_type" character varying(255) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "questions" ("id" serial primary key, "title" character varying(140) NOT NULL, "content" text NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(30) NOT NULL, "username" character varying(30) NOT NULL, "password" character varying(30) NOT NULL, "email" character varying(30) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "votes" ("id" serial primary key, "user_id" integer NOT NULL, "voteable_id" integer NOT NULL, "voteable_type" character varying(255) NOT NULL, "upvote" boolean, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140831210503')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140829201222')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140829201834')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140829202500')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140829203441')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (169.3ms)[0m  [1mDROP DATABASE IF EXISTS "dbc_overflow_development"[0m
+  [1m[35m (141.7ms)[0m  DROP DATABASE IF EXISTS "dbc_overflow_test"
+  [1m[36m (1221.5ms)[0m  [1mCREATE DATABASE "dbc_overflow_development" ENCODING = 'unicode'[0m
+  [1m[35m (394.9ms)[0m  CREATE DATABASE "dbc_overflow_test" ENCODING = 'unicode'
+  [1m[36mSQL (26.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (14.7ms)[0m  CREATE TABLE "answers" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "question_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "content" text NOT NULL, "user_id" integer NOT NULL, "commentable_id" integer NOT NULL, "commentable_type" character varying(255) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "questions" ("id" serial primary key, "title" character varying(140) NOT NULL, "content" text NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(30) NOT NULL, "username" character varying(30) NOT NULL, "password" character varying(30) NOT NULL, "email" character varying(30) NOT NULL, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "votes" ("id" serial primary key, "user_id" integer NOT NULL, "voteable_id" integer NOT NULL, "voteable_type" character varying(255) NOT NULL, "upvote" boolean, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140831210503')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140829201222')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140829201834')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140829202500')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140829203441')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-14 13:43:08 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 1020ms (Views: 956.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/duckoverflow.css?body=1" for 127.0.0.1 at 2014-10-14 13:43:12 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-14 13:43:14 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-14 13:43:15 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-14 13:43:17 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-14 13:43:19 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-14 13:43:21 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/duck_overflow.png" for 127.0.0.1 at 2014-10-14 13:43:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-10-14 13:44:18 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (30.1ms)
+  Rendered users/new.html.erb within layouts/application (260.1ms)
+Completed 200 OK in 487ms (Views: 386.8ms | ActiveRecord: 39.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-10-14 13:44:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LZdXhRKcS6/eFzBIOWNU9a0YKARs1nZeHtpHOgS2Zaw=", "user"=>{"name"=>"Chandler HC Smith", "username"=>"crackers", "email"=>"csmith@yahoo.com", "password"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (18.8ms)[0m  BEGIN
+  [1m[36mUser Exists (60.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'crackers' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'csmith@yahoo.com' LIMIT 1
+  [1m[36mSQL (36.5ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password", "updated_at", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-14 20:44:56.194909"], ["email", "csmith@yahoo.com"], ["name", "Chandler HC Smith"], ["password", "1gato22"], ["updated_at", "2014-10-14 20:44:56.194909"], ["username", "crackers"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:9393/users/1
+Completed 302 Found in 229ms (ActiveRecord: 117.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-14 13:44:57 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (19.7ms)[0m  [1mSELECT COUNT(*) FROM "questions"  WHERE "questions"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions"  WHERE "questions"."user_id" = $1  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (55.7ms)
+Completed 200 OK in 225ms (Views: 69.8ms | ActiveRecord: 39.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-14 13:44:59 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-14 13:45:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions"  WHERE "questions"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions"  WHERE "questions"."user_id" = $1  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 131ms (Views: 68.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-14 13:45:28 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 49ms (Views: 36.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-10-14 13:45:39 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 85ms (Views: 63.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-10-14 13:45:47 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "questions"  WHERE "questions"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mQuestion Load (0.2ms)[0m  SELECT "questions".* FROM "questions"  WHERE "questions"."user_id" = $1  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (59.8ms)
+Completed 200 OK in 172ms (Views: 97.1ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-14 13:45:51 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 46ms (Views: 36.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2014-10-14 13:45:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#index as HTML
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT "questions".* FROM "questions"
+  Rendered questions/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 57ms (Views: 34.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-14 13:46:03 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 50ms (Views: 38.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1/questions/new" for 127.0.0.1 at 2014-10-14 13:46:06 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendered questions/new.html.erb within layouts/application (75.7ms)
+Completed 200 OK in 170ms (Views: 145.7ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/questions" for 127.0.0.1 at 2014-10-14 13:47:24 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LZdXhRKcS6/eFzBIOWNU9a0YKARs1nZeHtpHOgS2Zaw=", "question"=>{"title"=>"Favorite Books", "content"=>"War and Peace is a great book, but I am not sure if it is my favorite.  What about you?"}, "commit"=>"Ask my Question"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "questions" ("content", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "War and Peace is a great book, but I am not sure if it is my favorite.  What about you?"], ["created_at", "2014-10-14 20:47:25.458709"], ["title", "Favorite Books"], ["updated_at", "2014-10-14 20:47:25.458709"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:9393/questions/1
+Completed 302 Found in 86ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-10-14 13:47:26 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mVote Load (17.9ms)[0m  [1mSELECT "votes".* FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2[0m  [["voteable_id", 1], ["voteable_type", "Question"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (20.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[35mAnswer Load (0.5ms)[0m  SELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1  [["question_id", 1]]
+  Rendered questions/show.html.erb within layouts/application (116.8ms)
+Completed 200 OK in 240ms (Views: 108.4ms | ActiveRecord: 45.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-14 13:47:29 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-14 13:47:30 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-14 13:47:32 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/duck_up.png" for 127.0.0.1 at 2014-10-14 13:47:34 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/duck_down.png" for 127.0.0.1 at 2014-10-14 13:47:36 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/questions/1/comments/new" for 127.0.0.1 at 2014-10-14 13:47:53 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#new as HTML
+  Parameters: {"question_id"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered comments/new.html.erb within layouts/application (69.3ms)
+Completed 200 OK in 147ms (Views: 101.0ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/questions/1/comments" for 127.0.0.1 at 2014-10-14 13:48:32 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LZdXhRKcS6/eFzBIOWNU9a0YKARs1nZeHtpHOgS2Zaw=", "comment"=>{"content"=>"Crime and Punishment is my personal favorite."}, "commit"=>"Post my Comment", "question_id"=>"1"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 1], ["commentable_type", "Question"], ["content", "Crime and Punishment is my personal favorite."], ["created_at", "2014-10-14 20:48:33.022084"], ["updated_at", "2014-10-14 20:48:33.022084"], ["user_id", 1]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mQuestion Load (0.3ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:9393/questions/1
+Completed 302 Found in 89ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-10-14 13:48:34 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mVote Load (0.4ms)[0m  [1mSELECT "votes".* FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2[0m  [["voteable_id", 1], ["voteable_type", "Question"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (42.5ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  Rendered questions/show.html.erb within layouts/application (107.7ms)
+Completed 200 OK in 204ms (Views: 95.5ms | ActiveRecord: 49.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-14 13:48:36 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/duck_up.png" for 127.0.0.1 at 2014-10-14 13:48:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/duck_down.png" for 127.0.0.1 at 2014-10-14 13:48:40 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/up_question_votes" for 127.0.0.1 at 2014-10-14 13:48:51 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by VotesController#up_question_vote as HTML
+  Parameters: {"authenticity_token"=>"LZdXhRKcS6/eFzBIOWNU9a0YKARs1nZeHtpHOgS2Zaw="}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mVote Load (24.4ms)[0m  [1mSELECT  "votes".* FROM "votes"  WHERE "votes"."user_id" = $1 AND "votes"."voteable_type" = 'Question' AND "votes"."voteable_id" = 1  ORDER BY "votes"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "votes" ("created_at", "updated_at", "upvote", "user_id", "voteable_id", "voteable_type") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2014-10-14 20:48:51.611536"], ["updated_at", "2014-10-14 20:48:51.611536"], ["upvote", "t"], ["user_id", 1], ["voteable_id", 1], ["voteable_type", "Question"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:9393/questions/1
+Completed 302 Found in 119ms (ActiveRecord: 31.6ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-10-14 13:48:53 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mVote Load (0.4ms)[0m  [1mSELECT "votes".* FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2[0m  [["voteable_id", 1], ["voteable_type", "Question"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  Rendered questions/show.html.erb within layouts/application (70.6ms)
+Completed 200 OK in 169ms (Views: 97.8ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-14 13:48:55 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-14 13:48:57 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-14 13:48:58 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/duck_up.png" for 127.0.0.1 at 2014-10-14 13:49:00 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/duck_down.png" for 127.0.0.1 at 2014-10-14 13:49:02 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/up_question_votes" for 127.0.0.1 at 2014-10-14 13:49:06 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by VotesController#up_question_vote as HTML
+  Parameters: {"authenticity_token"=>"LZdXhRKcS6/eFzBIOWNU9a0YKARs1nZeHtpHOgS2Zaw="}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mVote Load (18.3ms)[0m  [1mSELECT  "votes".* FROM "votes"  WHERE "votes"."user_id" = $1 AND "votes"."voteable_type" = 'Question' AND "votes"."voteable_id" = 1  ORDER BY "votes"."id" ASC LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mVote Load (0.3ms)[0m  SELECT  "votes".* FROM "votes"  WHERE "votes"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:9393/questions/1
+Completed 302 Found in 125ms (ActiveRecord: 22.6ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at 2014-10-14 13:49:08 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT  "questions".* FROM "questions"  WHERE "questions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mVote Load (0.5ms)[0m  [1mSELECT "votes".* FROM "votes"  WHERE "votes"."voteable_id" = $1 AND "votes"."voteable_type" = $2[0m  [["voteable_id", 1], ["voteable_type", "Question"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Question"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1mSELECT "answers".* FROM "answers"  WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  Rendered questions/show.html.erb within layouts/application (69.0ms)
+Completed 200 OK in 169ms (Views: 95.7ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-14 13:49:10 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/duck_down.png" for 127.0.0.1 at 2014-10-14 13:49:12 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m

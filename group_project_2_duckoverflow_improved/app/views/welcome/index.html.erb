@@ -1,0 +1,17 @@
+<h1>Welcome to Quack Overflow</h1>
+
+    <!-- def use the named routes for this stuff -->
+<%= form_tag("/questions/search", method:"get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if session[:user_id] %>
+  <%= link_to "Ask a Question", new_user_question_path(session[:user_id]) %>
+<%end %>
+<%= link_to "Browse Questions", questions_path %>
+<%= link_to "Browse Users", users_path %>
+
+
+

@@ -1,0 +1,11 @@
+
+
+  <% provide(:title, @user.name) %>
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+  <h4> <%=@questions.count%> Question(s) </h4>
+  <% @questions.each do |question| %>
+    <%= link_to question.title, question_path(question.id) %>
+  <% end %>
