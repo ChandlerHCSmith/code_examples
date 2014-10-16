@@ -1,0 +1,17 @@
+.container {
+  margin: 100px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 2px solid #989BF5;
+  background-color: #EDDFE6;
+  box-shadow: 3px 3px 4px #3478FF;
+}
+th {
+  text-align: left;
+}
+
+body {
+	background-color: lightblue;
+}
+
+
